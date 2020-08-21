@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projections</title>
+</head><h2>MAP PROJECTIONS!</h2>
+<body>
+    <h1></h1>
+    
+       <p>In this assignment, I used QGIS to display the world map in different projections. Through the QGIS application, I was able to connect to a downloaded world map as a vector layer. I then connected to the Indicatrix Mapper function, which added line and dot vector layers to display the spatial distribution of the continental shapes in each projection, and provided a visual indicator for any distortions that may occur. Then, using the ESRI feature, I was able to display the world map as different projections.  </p>
+    
+    <h2>Azmithual Projection</h2>
+    <h3>This projection displays the perspective of the earth as if it were viewed from directly above the north pole. It distorts shape of the continents, but tries to replicate the idea that the Earth is round.</h3>
+    <a href="./my projections/north pole azmithual.png">
+    <img src="./my projections/north pole azmithual.png" alt="Azmithual" width='500px'>
+    </a>
+    <h2>Pseudo-Mercator Projection</h2>
+    <h3>The pseudo-mercator projection is the projection of the globe on to a cylinder that is then extended into a flat rectuangular surface. It maintains latitude close to the equator, but the lines of latitude get further appart approaching the poles, stretching out the shape of the continents. </h3>
+    <a href=".//my projections/pseudo-mercator.png">
+    <img src=".//my projections/pseudo-mercator.png" alt="Pseudo-Mercator" width='500px'>
+    </a>
+    <h2>Winkel Tripel Projection</h2>
+    <h3>This projection is similar to a mercator projection because of the distortion of latitude as it moves away from the equator. The Winkel-Tripel projection has the additional element of trying to imitate the Earth's spheroid shape by having curved edges and distortion on the outer longitudes.</h3>
+    <a href=".//my projections/sphere Winkel.png">
+    <img src=".//my projections/sphere Winkel.png" alt="Winkel-Tripel width='500px'>
+    </a>
+    <h2>Cylindrical Equal Area Projection</h2>
+    <h3>The cylindrical equal area projection emphasizes preservation of shape through maintaining equal area between lines of latitude and longitude around the equator. However, while the mercator projection extends area towards the poles, this projection shrinks area towards the poles.</h3> 
+    <a href=".//my projections/world cylindrical equal area.png">
+    <img src=".//my projections/world cylindrical equal area.png" alt="Cylindrical" width='500px'>
+    </a>
+    <h2>Equidistant Conic Projection</h2>
+    <h3>The world euqidistant conic projection resembles the azmithual projection in that it centralizes the north pole and projects the map on to a spherical plane. This map focuses on size at the poles, and then extends the area moving outward from the center of the circle.</h3>
+    <a href=".//my projections/world equidistant conic.png">
+    <img src=".//my projections/world equidistant conic.png" alt="Equidistand Conic" width='500px'>
+    </a>
+    <h2>Sinusoidal Projection</h2>
+    <h3>The sinusoidal map projects area and shape similary to the cylindrical projection, but tries to additionally replicate the curvature of the Earth. It also includes pointed tips to emphasize the north and south poles and prevent their horizontal stretching, which in turn prevents the lines of latitude and longitude from reaching the top and bottom of the map without causing more distortion.</h3>
+    <a href=".//my projections/world sinusoidal.png">
+    <img src=".//my projections/world sinusoidal.png" alt="Sinusoidal" width='500px'>
+    </a>
+    <h2>Polyiconic Projection</h2>
+    <h3>The polyiconic projection is symmetrical around the prime meridian and displays the earth as a combination of two circular hemispheres. This creates a curvature along the longitudes as they become taller moving away from the prime meridian. Also, only the equitorial latitude is displayed as flat, while around each of the poles the latitide lines are curved to replicate the curvature of a globe. </h3>
+    <a href=".//my projections/world polyiconic.png">
+    <img src=".//my projections/world polyiconic.png" alt="Polyiconic" width='500px'>
+    </a>
+    <p></p>
+    <h2>Data used for this project</h2>
+    <a href="https://www.naturalearthdata.com/http//www.naturalearthdata.com/download/10m/cultural/ne_10m_admin_0_countries.zip"> Download Natrual Earth 1:10m Cultural Vector </a>
+</body>
+</html>
