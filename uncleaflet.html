@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNC Leaflet Map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+   <script src = "./Unit 3/leaflet/data/old_well_4326.geojson"></script>
+
+<body>
+
+    <div id="mapid"></div>
+    <style>
+        #mapid{width: 900px;height: 500px;}
+    </style>
+
+    <script>
+        var map = L.map('mapid').setView([35.91, -79.05], 17);
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {}).addTo(map)
+        
+        // L.geoJSON(uncwell).addTo(map)
+        var uncIcon = L.icon({
+            iconUrl:'https://ims.unc.edu/files/2017/01/IMS-Newsletter-UNC-Old-Well-logo-30x30-03.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+        });
+        var customPopup = "UNC Well<br/><img src='https://global.unc.edu/files/2020/02/spring_4_09__12_054-768x511.jpg'width='100px'/>";
+        L.geoJSON(uncwell, { // a
+        pointToLayer: function (feature, latlng) { // b
+        return L.marker(latlng, {icon: uncIcon});}}) // c
+        .bindPopup(customPopup) // d
+        .addTo(map); //
+
+        // L.geoJSON(belltower).addTo(map)
+        var uncIcon = L.icon({
+            iconUrl:'http://clipart-library.com/img/803312.png',
+            iconSize: [50,75],
+            popupAnchor: [0,0]
+        });       
+        var customPopup = "Morehead-Patterson Belltower<br/><img src='https://d39b6jghit77xc.cloudfront.net/wp-content/uploads/2018/11/05144241/BellTower_exterior-1.jpg'width='100px'/>";
+        L.geoJSON(belltower, { // a
+        pointToLayer: function (feature, latlng) { // b
+        return L.marker(latlng, {icon: uncIcon});}}) // c
+        .bindPopup(customPopup) // d
+        .addTo(map); //
+
+        // L.geoJSON(wilson).addTo(map)
+        var uncIcon = L.icon({
+            iconUrl:'https://image.flaticon.com/icons/png/512/401/401579.png',
+            iconSize: [50,40],
+            popupAnchor: [0,0]
+        });
+        var customPopup = "Wilson Library & Archives<br/><img src='https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Louis_Round_Wilson_Library.JPG/1200px-Louis_Round_Wilson_Library.JPG'width='100px'/>";
+        L.geoJSON(wilson, { // a
+        pointToLayer: function (feature, latlng) { // b
+        return L.marker(latlng, {icon: uncIcon});}}) // c
+        .bindPopup(customPopup) // d
+        .addTo(map); //
+
+
+        // L.geoJSON(planetarium).addTo(map)
+        var uncIcon = L.icon({
+            iconUrl:'https://cdn3.iconfinder.com/data/icons/earth-and-space/512/nebula-512.png',
+            iconSize: [50,50],
+            popupAnchor: [0,0]
+        });
+        var customPopup = "Morehead Planetarium<br/><img src='https://upload.wikimedia.org/wikipedia/commons/d/dc/Morehead_Planetarium_and_Science_Center.jpg'width='100px'/>";
+        L.geoJSON(planetarium, { // a
+        pointToLayer: function (feature, latlng) { // b
+        return L.marker(latlng, {icon: uncIcon});}}) // c
+        .bindPopup(customPopup) // d
+        .addTo(map); //
+
+        // L.geoJSON(polk).addTo(map)
+        var customPopup = "Polk Place<br/><img src='https://upload.wikimedia.org/wikipedia/commons/6/69/2008-07-21_Polk_Place_from_South_Building_entrance.jpg'width='100px'/>";
+        L.geoJSON(polk, { // a
+        pointToLayer: function (feature, latlng) { // b
+        return L.marker(latlng, {icon: uncIcon});}}) // c
+        .bindPopup(customPopup) // d
+        .addTo(map); //
+
+        // L.geoJSON(franklin).addTo(map)
+        var customPopup = "Franklin Street<br/><img src='https://media.bizj.us/view/img/11012124/franklin-street-evening-shop-downtown-chapel-hill-by-chapel-hill-orange-county*1200xx3405-1915-0-176.jpg'width='100px'/>";
+        L.geoJSON(franklin, { // a
+        pointToLayer: function (feature, latlng) { // b
+        return L.marker(latlng, {icon: uncIcon});}}) // c
+        .bindPopup(customPopup) // d
+        .addTo(map); //
+
+    </script>
+    
+
+</body>
+</html>
