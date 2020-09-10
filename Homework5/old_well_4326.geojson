@@ -1,0 +1,48 @@
+var uncwell = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1, "descrip": "unc well" }, "geometry": { "type": "Point", "coordinates": [ -79.0512352278691, 35.912064676772367 ] } }
+]
+};
+
+
+var belltower = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 2, "descrip": "unc belltower" }, "geometry": { "type": "Point", "coordinates": [ -79.049358, 35.908599 ] } }
+]
+};
+
+var polk = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 3, "descrip": "unc polk place " }, "geometry": { "type": "Polygon", "coordinates":[ [[ -79.050328, 35.909743 ], [ -79.049613, 35.910002 ], [ -79.050424, 35.911323 ], [ -79.051082, 35.911142] ]]} }
+]
+};
+
+var wilson = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 4, "descrip": "unc wilson library" }, "geometry": { "type": "Point", "coordinates": [ -79.049797, 35.909615 ] } }
+]
+};
+
+var planetarium = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 5, "descrip": "unc morehead planetarium" }, "geometry": { "type": "Point", "coordinates": [ -79.050641, 35.913900 ] } }
+]
+};
+
+var franklin = {
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 6, "descrip": "unc franklin street" }, "geometry": { "type": "LineString", "coordinates": [[ -79.049254, 35.915633 ], [ -79.055789, 35.913150 ], [ -79.063240, 35.910272 ]] } }
+]
+};
