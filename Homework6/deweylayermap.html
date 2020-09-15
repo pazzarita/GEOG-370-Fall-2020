@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dewey Beach Layer Map</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+   <script src = "deweypoints.geojson"></script>
+
+</head>
+<body>
+    <div id="mapid"></div>
+    <style>
+        #mapid{width: 900px; height: 500px}
+    </style>
+
+    <script>
+      var map = L.map('mapid').setView([38.699269578968185, -75.07201424068823], 14.0);
+      
+      var EsriTopo = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+      	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+          }).addTo(map);
+
+      var Dewey = L.tileLayer('./Tiles/{z}/{x}/{y}.png', {
+        minZoom: 12,
+        maxZoom: 16,
+        tms: false,
+        attribution: 'Image Source: USGS'
+      });  
+
+      //   L.geoJSON(marina).addTo(map)
+      var marinaIcon = L.icon({
+          iconUrl:'http://cdn.onlinewebfonts.com/svg/img_466610.png',
+          iconSize: [40,50],
+          popupAnchor: [0,0]
+      });
+      var customPopup = "The ports on the bay side, including those at Rehoboth Marina, have developed further out on the water to accomodate more boats.<br/><img src='http://www.rehobothbaymarina.com/assets/images/amenities/190slips.jpg'width='100px'/>";
+      var docks = L.geoJSON(marina, { // a
+      pointToLayer: function (feature, latlng) { // b
+      return L.marker(latlng, {icon: marinaIcon});}}) // c
+      .bindPopup(customPopup) // d
+      .addTo(map); //
+      
+      //   L.geoJSON(sand).addTo(map)
+      var sandIcon = L.icon({
+          iconUrl:'https://www.shareicon.net/data/512x512/2016/08/18/810612_sun_512x512.png',
+          iconSize: [40,40],
+          popupAnchor: [0,0]
+      });
+      var customPopup = "I thought it was really interesting that to view the change in the shoreline over time. It has visibly expanded since 1981.<br/><img src='https://cdn.jamesedition.com/media/W1siZiIsImxpc3RpbmdfaW1hZ2VzLzIwMTgvMDQvMDQvMDQvNDcvMjEvNjBiYjgyZjQtZmM5MC00MDczLWEzYzEtM2ZiZDFlOTJjZjkwL0JBOTAyMDZDLUJCRjktNDREMS05NEMzLUZCRkQ4ODgyQzk5NiJdLFsicCIsInRodW1iIiwiMjAwMHgiXSxbInAiLCJ3YXRlcm1hcmsiXSxbInAiLCJlbmNvZGUiLCJqcGciLCItc3RyaXAgLXF1YWxpdHkgODAgLWludGVybGFjZSBQbGFuZSJdXQ/7-clayton-dewey-beach-de-19971.jpg?sha=e7cccaa17c5439d9'width='100px'/>";
+      var shore = L.geoJSON(sand, { // a
+      pointToLayer: function (feature, latlng) { // b
+      return L.marker(latlng, {icon: sandIcon});}}) // c
+      .bindPopup(customPopup) // d
+      .addTo(map); //
+
+      //   L.geoJSON(house).addTo(map)
+      var houseIcon = L.icon({
+          iconUrl: 'http://www.masterdigm.com/offers/wp-content/uploads/2015/04/neighborhood-icon.png',
+          iconSize: [50,40],
+          popupAnchor: [0,0]
+      });
+      var customPopup = "As beach development has increased, more neighborhoods have been built. This one cuts in to a space formerly part of a nature preserve.<br/><img src='https://www.rehobothrealestate.com/realestate/images/listing_photos/DESU164600-304208091780-2020-07-15-13-35-53.jpg'width='100px'/>";
+      var streets = L.geoJSON(house, { // a
+      pointToLayer: function (feature, latlng) { // b
+      return L.marker(latlng, {icon: houseIcon});}}) // c
+      .bindPopup(customPopup) // d
+      .addTo(map); //
+
+      var Tiles = {
+        "Dewey Beach 1981":Dewey,
+        "ESRI Topographic Map":EsriTopo
+      };
+
+      var Markers = {
+          "Rehoboth Marina":docks,
+          "Shoreline":shore,
+          "Neighborhood":streets
+      };
+
+      L.control.layers(Tiles, Markers).addTo(map)
+    </script>
+    
+</body>
+</html>
