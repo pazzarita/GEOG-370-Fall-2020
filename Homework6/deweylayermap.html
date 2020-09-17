@@ -75,6 +75,19 @@
       .bindPopup(customPopup) // d
       .addTo(map); //
 
+      //   L.geoJSON(dune).addTo(map)
+      var duneIcon = L.icon({
+          iconUrl:'https://static.thenounproject.com/png/1156252-200.png',
+          iconSize: [60,30],
+          popupAnchor: [0,0]
+      });
+      var customPopup = "Development along the beachfront has disturbed an area that used to be covered with dunes.<br/><img src='https://36bf84b1de1b05d198b6-32e458dda710fe9ce0709f5050a08944.ssl.cf2.rackcdn.com/amenity/3922/image/large/_dsc1219.jpg'width='100px'/>";
+      var thedunesarewet = L.geoJSON(dune, { // a
+      pointToLayer: function (feature, latlng) { // b
+      return L.marker(latlng, {icon: duneIcon});}}) // c
+      .bindPopup(customPopup) // d
+      .addTo(map); //
+
       var Tiles = {
         "Dewey Beach 1981":Dewey,
         "ESRI Topographic Map":EsriTopo
@@ -83,7 +96,8 @@
       var Markers = {
           "Rehoboth Marina":docks,
           "Shoreline":shore,
-          "Neighborhood":streets
+          "Neighborhood":streets,
+          "Beachfront":thedunesarewet
       };
 
       L.control.layers(Tiles, Markers).addTo(map)
