@@ -25,9 +25,9 @@
     <script>
       var map = L.map('mapid').setView([38.699269578968185, -75.07201424068823], 14.0);
       
-      var EsriTopo = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-        attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community',
-        }).addTo(map);
+      var EsriWorld = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+	    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+        });
 
       var Dewey = L.tileLayer('./Tiles/{z}/{x}/{y}.png', {
         minZoom: 12,
@@ -91,7 +91,7 @@
 
       var Tiles = {
         "Dewey Beach 1981":Dewey,
-        "ESRI World Imagery":EsriTopo
+        "ESRI World Imagery":EsriWorld
       };
 
       var Markers = {
