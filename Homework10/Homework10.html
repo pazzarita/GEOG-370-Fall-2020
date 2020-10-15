@@ -8,17 +8,29 @@
 <body>
 <h1>Homework 10: Geoprocessing Tools </h1>
 <h2>Paige Azzarita</h2>
-<h3>In this project, I wanted to answer the question: "Is Kudzu going to take over the land area of Georgia?" Kudzu is an invasive species from Asia that is one of the fastest growing plant species in the United States. Its rapid growth in the US climate has made it one of the more harmful invasive plant species, and is a major threat to forest areas. In this map, I used point data of Kudzu populations in the US, and isolated it to points in Georgia using the intersect function. I then identified which areas were most likely to grow and which were least likely to grow by creating two sets of intersects, one with high quality soil areas, and one wth urban areas. I then added a buffer of 365 feet to the points in high soil areas, since Kudzu can grow up to one foot per day, to see how the territory could be expected to grow over the course of a year.  </h3>
+<h3> Is Kudzu taking over Georgia></h3>
+<h4>In this project, I wanted to answer the question: "If Kudzu growth continues, how severe will the infestation become in the next 10 years?" Kudzu is an invasive species that is one of the fastest growing plant species in the United States, with growth rates around 1 foot per day. Its rapid growth in US climates, especially the southeast, has made it a major threat to forest areas. In this map, I used point data of Kudzu populations in the US, and isolated it to points in Georgia using the intersect function. I then identified which areas were most likely to grow and which were least likely to grow by creating two sets of intersects, one with high groundwater levels, and one wth urban areas. I then added buffers with varying sizes based on the average growth rates of the plant throughout the course of the year, and multiplied by 10 to see how much area the plants could be expected to cover in the next 10 years. For the areas with the lowest expected growth (with urban area intersect), I used a buffer of 1825 feet, equal to 1/2 the normal growth rate over ten years, or .5 feet per day. The areas with the most growth (the high groundwater regions) have a buffer size of 7300 feet, or a rate of 2 feet of growth per day for ten years. The mid-range buffers have a size of 3650 feet, as is the expected growth of one foot per day.  </h4>
 
-<a href="">
-    <img src="" alt="" width='500px'>
+<a href="./kudzu_map_print.png">
+    <img src="kudzu_map_print.png" alt="Kudzu" width='500px'>
     </a>
 
 
-<h2>Data used for this project</h2>
-    <a href=""> CSV dataset </a>
+<h2>Data and Sources</h2>
+    <a href="points.shp"> Kudzu points shapefile download</a>
     <p></p>
-    <a href=""> Link to shapefile </a>
+    <a href="https://www.eddmaps.org/distribution/viewmap.cfm?sub=2425##"> Link to kudzu points source</a>
+    <p></p>
+    <a href="Counties_Georgia.shp">Georgia boundary shapefile download</a>
+    <p></p>
+    <a href="cb_2018_13_county_within_ua_500k.shp">Urban areas shapefile download </a>
+    <p></p>
+    <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html">Link to Georgia boundaries and urban areas source</a>
+    <p></p>
+    <a href="gwpollsuscP.shp">Groundwater recharg area shapefile download</a>
+    <p></p>
+    <a href="http://www.georgiaplanning.com/dataforplanning.asp">Link to groundwater source</a>
+    <p></p>
 
 </body>
 </html>
